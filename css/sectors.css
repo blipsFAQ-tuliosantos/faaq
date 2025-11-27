@@ -1,0 +1,68 @@
+/* ================================================= */
+/* TELA DE SELEÇÃO DE SETOR (CARDS) */
+/* (Estilos Isolados com o prefixo #sector-selection-screen) */
+/* ================================================= */
+
+/* Garante que o container da tela de seleção de setor use a largura correta para os cards */
+#sector-selection-screen .login-container {
+    max-width: 900px;
+    width: 95%;
+    text-align: center; 
+}
+
+#sector-selection-screen .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+#sector-selection-screen .sector-card {
+    padding: 15px 10px; 
+    cursor: pointer;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); 
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    background-color: #2c2c2c;
+    min-width: 100px; 
+}
+
+#sector-selection-screen .sector-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.4); 
+    background-color: #383838;
+}
+
+/* Estilo quando o card de setor está ativo (selecionado) */
+#sector-selection-screen .sector-card.active-sector {
+    background-color: #FCBA28 !important; 
+    color: #000000;
+    font-weight: 700;
+    border: 1px solid #FFC94F;
+}
+
+#sector-selection-screen .sector-card h3 {
+    font-size: 13px; 
+    color: #f0f0f0;
+    margin: 8px 0 0 0;
+    line-height: 1.2;
+}
+
+#sector-selection-screen .sector-card:hover h3 {
+    color: #f0f0f0;
+}
+
+#sector-selection-screen .sector-card .icon {
+    font-size: 28px; 
+}
+
+@media (max-width: 768px) {
+    #sector-selection-screen .sector-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    #sector-selection-screen .login-container {
+        max-width: 400px;
+    }
+}

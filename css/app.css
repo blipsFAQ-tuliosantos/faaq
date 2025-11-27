@@ -1,0 +1,333 @@
+/* ================================================= */
+/* TELA DE APLICATIVO PRINCIPAL */
+/* (Estilos Isolados com o prefixo #app-container) */
+/* ================================================= */
+
+/* TELA DO APLICATIVO PRINCIPAL: ALINHA AO TOPO */
+#app-container {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    min-height: 100vh;
+    background-color: #1e1e1e;
+    padding: 0; 
+    transition: opacity 0.4s ease; 
+    box-sizing: border-box; 
+}
+
+
+/* --- Sidebar --- */
+#app-container .sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: #242424;
+    padding: 20px; 
+    border-radius: 0 16px 16px 0;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: background 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+#app-container .sidebar h2 {
+    font-size: 18px; 
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #FCBA28;
+    padding-left: 5px;
+}
+
+#app-container .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; 
+}
+
+#app-container .sidebar .logout-btn {
+    margin-top: auto; 
+    background-color: #444444;
+    color: #f0f0f0;
+}
+
+#app-container .sidebar .logout-btn:hover {
+    background-color: #FFC94F; 
+    color: #000000;
+}
+
+/* Menu Items (Botões da Sidebar) */
+#app-container .menu-item {
+    padding: 12px 15px; 
+    margin-bottom: 8px; 
+    font-size: 15px; 
+    font-weight: 500;
+    background-color: #383838;
+    border-radius: 10px; 
+    color: #f0f0f0;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2); 
+    transition: 0.25s ease;
+    cursor: pointer;
+    user-select: none;
+    display: block; 
+    text-decoration: none; 
+}
+
+#app-container .menu-item:hover {
+    transform: translateX(3px); 
+    background-color: #444444;
+}
+
+/* Aba ativa (Cor de destaque #FCBA28) */
+#app-container .menu-item.active {
+    background-color: #FCBA28;
+    color: #000000;
+    font-weight: 600;
+    transform: translateX(3px);
+    box-shadow: 0px 0px 8px rgba(252, 186, 40, 0.5); 
+}
+
+/* AJUSTE PARA O BOTÃO 'VOLTAR AO SELETOR' */
+#app-container .sidebar .menu-item[onclick="renderSectorSelection()"] {
+    background-color: #FCBA28 !important; 
+    color: #000 !important; 
+    font-weight: 700 !important; 
+}
+#app-container .sidebar .menu-item[onclick="renderSectorSelection()"]:hover {
+    background-color: #FFC94F !important; 
+    color: #000 !important;
+}
+
+
+/* --- Área Principal --- */
+#app-container .main-content {
+    margin-left: 300px;
+    padding: 30px;
+    width: calc(100% - 300px); 
+    box-sizing: border-box; 
+    color: #f0f0f0;
+}
+
+/* Define uma altura mínima para o conteúdo principal */
+#app-container #conteudo {
+    min-height: calc(100vh - 60px); 
+    transition: all 0.2s; 
+}
+
+
+/* --- Cards Internos (Mini e Time) --- */
+#app-container .card-mini, 
+#app-container .card-time {
+    background: #383838;
+    padding: 15px; 
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    margin: 10px 0; 
+    
+    min-height: auto; 
+    max-height: none;
+    overflow-y: visible;
+
+    box-sizing: border-box; 
+}
+
+#app-container .card-mini h3, 
+#app-container .card-time h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #FCBA28; 
+}
+
+#app-container .card-time ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 0;
+    font-size: 14px;
+    max-height: none; 
+    overflow-y: visible; 
+    padding-right: 0; 
+}
+#app-container .card-time li {
+    margin-bottom: 3px;
+    color: #f0f0f0;
+}
+
+
+/* --- HIERARQUIA / FLUXO DE DECISÃO --- */
+
+#app-container .hierarquia {
+    margin: 8px 0; 
+    padding: 0;
+}
+
+/* Botões de sub-nível (Gestores/Fases) */
+#app-container .card-btn.sub {
+    margin-left: 15px; 
+    width: calc(100% - 15px);
+    background: #444444;
+    border: 1px solid #555555;
+    color: #f0f0f0;
+}
+#app-container .card-btn.sub:hover {
+    background: #555555;
+}
+
+/* Sub-nível Ativo (Gestores/Fases Ativas) */
+#app-container .card-btn.sub.active {
+    background-color: #FCBA28; 
+    color: #000000; 
+    font-weight: 600;
+    transform: none;
+    box-shadow: 0px 0px 6px rgba(252, 186, 40, 0.4);
+    border: 1px solid #FCBA28;
+}
+
+#app-container .nivel {
+    padding-left: 15px; 
+    margin-top: -3px; 
+}
+
+/* Fluxo de Decisão (SIM/NÃO) */
+#app-container .botoes-fluxo {
+    display: flex;
+    gap: 10px; 
+    margin-top: 10px; 
+}
+
+#app-container .botoes-fluxo-mini .card-btn.mini {
+    flex-grow: 0; 
+    width: 80px; 
+    text-align: center;
+    padding: 10px 5px; 
+    font-size: 14px;
+    font-weight: 600;
+    background: #444444; 
+    color: #f0f0f0;
+    min-height: 40px; 
+}
+#app-container .botoes-fluxo-mini .card-btn.mini:hover {
+    background: #555555;
+}
+
+/* Botão de Fluxo Ativo (SIM/NÃO Ativo) */
+#app-container .botoes-fluxo .card-btn.active {
+    background-color: #FCBA28; 
+    color: #000000; 
+    box-shadow: 0px 2px 6px rgba(252, 186, 40, 0.4); 
+    transform: none;
+}
+
+#app-container .flow-arrow {
+    margin: 15px 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#app-container .flow-arrow p {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FCBA28; 
+    margin: 0;
+}
+
+/* --- ESTILOS PARA O FLUXO MAQUINA CHEGOU (CORRIGIDO) --- */
+/* Certifica que os botões de fluxo (Como Atender/Testes) ficam grandes e centralizados */
+#app-container .hierarquia #q1-fluxo-principal .botoes-fluxo {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+#app-container .hierarquia #q1-fluxo-principal .botoes-fluxo .card-btn {
+    flex: 1;
+    margin: 0 10px;
+    padding: 15px 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- ESTILOS COMPLEMENTARES PARA O MENU DE MÁQUINAS (MINIMALISTA) --- */
+
+/* Estilo para os botões de categoria (Comunicação Visual, etc.) */
+#app-container .hierarquia .category-btn {
+    background-color: #333; 
+    color: #f0f0f0;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 0; 
+    padding: 12px 15px;
+    width: 100%; 
+    border-radius: 6px 6px 0 0; 
+    border: 1px solid #444;
+    border-bottom: none;
+}
+
+#app-container .hierarquia .category-btn:hover {
+    background-color: #3a3a3a;
+    color: #FCBA28; 
+}
+
+#app-container .hierarquia .category-btn.active {
+    background-color: #333;
+    color: #FCBA28; 
+    border-bottom: 1px solid #FCBA28; 
+}
+
+/* Container do menu de modelos (a lista que se abre) */
+#app-container .maquina-menu {
+    border: 1px solid #444; 
+    border-top: none; 
+    padding: 10px;
+    background-color: #2b2b2b; 
+    border-radius: 0 0 6px 6px; 
+    margin-bottom: 10px; 
+}
+
+/* Estilo para os botões individuais de modelo de máquina */
+#app-container .maquina-menu .card-btn.sub {
+    background-color: #242424; 
+    color: #ccc;
+    font-size: 0.9em;
+    text-align: left;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 1px solid #3a3a3a;
+}
+
+#app-container .maquina-menu .card-btn.sub:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+#app-container .maquina-menu .card-btn.sub.active {
+    background-color: #FCBA28; 
+    color: #000;
+    border-color: #FCBA28;
+}
+
+/* ================================================= */
+/* ALERTA DE AVISO (Para a observação do Histórico) */
+/* ================================================= */
+.card-alerta-aviso {
+    border: 3px solid #FCBA28; /* Cor do destaque */
+    background-color: #382c16; /* Fundo mais escuro/quente */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-alerta-aviso h3 {
+    color: #FCBA28;
+    margin-top: 0;
+    font-size: 1.1em;
+    text-align: center;
+}

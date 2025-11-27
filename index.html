@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Fluxos</title>
+    
+    <link rel="stylesheet" href="css/base.css"> 
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/sectors.css">
+    <link rel="stylesheet" href="css/app.css">
+    
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="card login-container">
+            <h2>ACESSO FLUXOS</h2> 
+            
+            <form onsubmit="handleLogin(event)">
+                <input type="text" id="username" placeholder="Usuário (blips)" required>
+                <input type="password" id="password" placeholder="Senha (blips)" required>
+                
+                <p id="login-error" class="error-message"></p>
+                
+                <button type="submit" class="card-btn active">ENTRAR</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="sector-selection-screen" class="oculto">
+        </div>
+
+    <div id="app-container" class="oculto">
+        
+        <div class="sidebar">
+            <h2>FAQ CARREGANDO...</h2> 
+            
+            <div id="menu-area-content">
+                </div>
+        </div>
+
+        <div class="main-content">
+            <div id="conteudo">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>  <script src="js/auth.js"></script>   <script src="js/app.js"></script>    </body>
+</html>
