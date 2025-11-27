@@ -547,7 +547,7 @@ function loadContent(section, element) {
                 </div>
 
                 <div id="flow-arrow-q1" class="flow-arrow oculto">
-                    <p>➡️ Próxima Etapa</p>
+                    <p>⬇️ Próxima Etapa</p>
                 </div>
 
                 <div id="flow-q1-atender" class="card-alerta-sucesso oculto" style="color: #f0f0f0;">
@@ -1109,4 +1109,5 @@ links_uteis: `
 
 
     conteudo.innerHTML = pages[section] || "<p>Erro ao carregar conteúdo.</p>";
+
 }
